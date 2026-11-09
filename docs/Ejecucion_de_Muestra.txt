@@ -1,0 +1,35 @@
+SISTEMA DE GESTIÓN DE CASOS Y AUDIENCIAS - DEMO ACADÉMICA
+
+CREACIÓN / ENCAPSULAMIENTO / COMPOSICIÓN
+Centro de Conciliación de Demostración: 3 casos, 0 audiencias
+Correo actualizado: ana.actualizado@ejemplo.test
+Asunto actualizado: Diferencia por incumplimiento de acuerdo
+Expediente: CC-001 ('Solicitud inicial', 'Documentos aportados')
+
+POLIMORFISMO: UNA COLECCIÓN HETEROGÉNEA Y UN ÚNICO CICLO
+Revisión ACT-01: 2 documentos - 18/11/2026 08:00
+  Simulación de revisión: Solicitud inicial, Documentos aportados
+Citación ACT-02: Luis Rojas, por correo - 18/11/2026 09:00
+  Simulación: citación preparada para Luis Rojas por correo
+Audiencia ACT-03: Sala 1 - 19/11/2026 09:00
+  Simulación: audiencia programada en Sala 1 para 19/11/2026 09:00
+Revisión ACT-04: 1 documentos - 18/11/2026 10:00
+  Simulación de revisión: Petición inicial
+Citación ACT-05: Carlos Mora, por comunicación - 18/11/2026 11:00
+  Simulación: citación preparada para Carlos Mora por comunicación
+Audiencia ACT-06: Sala 2 - 19/11/2026 11:00
+  Simulación: audiencia programada en Sala 2 para 19/11/2026 11:00
+
+TRES EXCEPCIONES PERSONALIZADAS CAPTURADAS
+[Radicado duplicado] Ya existe el radicado CC-001.
+[Conflicto de agenda] Andrea Ruiz tiene audiencia a las 19/11/2026 09:00 en el caso CC-001.
+[Estado incompatible] El caso CC-003 está en RADICADO; no puede cerrarse.
+[Validación de dato encapsulado] Correo no puede estar vacío.
+El correo conserva el valor válido: ana.actualizado@ejemplo.test
+
+CONTINUIDAD DESPUÉS DE LOS ERRORES
+CC-001 | Diferencia contractual | CERRADO | Solicitante: Ana Pérez | Convocado: Luis Rojas | Conciliador: Andrea Ruiz | Actuaciones: 3 | Documentos: 3
+CC-002 | Diferencia por incumplimiento de acuerdo | EN_TRAMITE | Solicitante: Diana León | Convocado: Carlos Mora | Conciliador: Andrea Ruiz | Actuaciones: 3 | Documentos: 0
+CC-003 | Conflicto de convivencia | RADICADO | Solicitante: Ana Pérez | Convocado: Carlos Mora | Conciliador: Felipe Torres | Actuaciones: 0 | Documentos: 0
+Centro de Conciliación de Demostración: 3 casos, 2 audiencias
+FIN DE LA DEMOSTRACIÓN

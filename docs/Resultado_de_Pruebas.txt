@@ -1,0 +1,35 @@
+test_01_constructores (test_sistema.PruebasSistema.test_01_constructores) ... ok
+test_02_email_actualizable (test_sistema.PruebasSistema.test_02_email_actualizable) ... ok
+test_03_cadena_vacia_no_modifica_correo (test_sistema.PruebasSistema.test_03_cadena_vacia_no_modifica_correo) ... ok
+test_04_email_sin_arroba_invalido (test_sistema.PruebasSistema.test_04_email_sin_arroba_invalido) ... ok
+test_05_atributo_correo_sin_setter (test_sistema.PruebasSistema.test_05_atributo_correo_sin_setter) ... ok
+test_06_partes_distintas (test_sistema.PruebasSistema.test_06_partes_distintas) ... ok
+test_07_conciliador_requerido (test_sistema.PruebasSistema.test_07_conciliador_requerido) ... ok
+test_08_asunto_actualizacion_valida (test_sistema.PruebasSistema.test_08_asunto_actualizacion_valida) ... ok
+test_09_asunto_vacio_no_modifica (test_sistema.PruebasSistema.test_09_asunto_vacio_no_modifica) ... ok
+test_10_composicion_creacion_interna (test_sistema.PruebasSistema.test_10_composicion_creacion_interna) ... ok
+test_11_expediente_control_de_documentos (test_sistema.PruebasSistema.test_11_expediente_control_de_documentos) ... ok
+test_12_expediente_no_expone_lista (test_sistema.PruebasSistema.test_12_expediente_no_expone_lista) ... ok
+test_13_clase_abstracta (test_sistema.PruebasSistema.test_13_clase_abstracta) ... ok
+test_14_tres_especializaciones (test_sistema.PruebasSistema.test_14_tres_especializaciones) ... ok
+test_15_polimorfismo_dos_metodos (test_sistema.PruebasSistema.test_15_polimorfismo_dos_metodos) ... ok
+test_16_revision_documental_vacia (test_sistema.PruebasSistema.test_16_revision_documental_vacia) ... ok
+test_17_citacion_destinatario_tipo (test_sistema.PruebasSistema.test_17_citacion_destinatario_tipo) ... ok
+test_18_fecha_invalida (test_sistema.PruebasSistema.test_18_fecha_invalida) ... ok
+test_19_registro_actuacion_cambia_estado (test_sistema.PruebasSistema.test_19_registro_actuacion_cambia_estado) ... ok
+test_20_registro_de_objeto_no_actuacion (test_sistema.PruebasSistema.test_20_registro_de_objeto_no_actuacion) ... ok
+test_21_codigo_actuacion_duplicado (test_sistema.PruebasSistema.test_21_codigo_actuacion_duplicado) ... ok
+test_22_error_dominio_caso_duplicado (test_sistema.PruebasSistema.test_22_error_dominio_caso_duplicado) ... ok
+test_23_error_dominio_horario_conflictivo (test_sistema.PruebasSistema.test_23_error_dominio_horario_conflictivo) ... ok
+test_24_hora_diferente_permitida (test_sistema.PruebasSistema.test_24_hora_diferente_permitida) ... ok
+test_25_conciliador_diferente_misma_hora (test_sistema.PruebasSistema.test_25_conciliador_diferente_misma_hora) ... ok
+test_26_error_dominio_estado_cierre_prematuro (test_sistema.PruebasSistema.test_26_error_dominio_estado_cierre_prematuro) ... ok
+test_27_cierre_valido (test_sistema.PruebasSistema.test_27_cierre_valido) ... ok
+test_28_no_alterar_caso_cerrado (test_sistema.PruebasSistema.test_28_no_alterar_caso_cerrado) ... ok
+test_29_conflicto_sin_ocupar_cupo (test_sistema.PruebasSistema.test_29_conflicto_sin_ocupar_cupo) ... ok
+test_30_sistema_continua_despues_de_excepciones (test_sistema.PruebasSistema.test_30_sistema_continua_despues_de_excepciones) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.001s
+
+OK

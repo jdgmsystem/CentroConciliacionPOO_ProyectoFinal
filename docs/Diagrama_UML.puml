@@ -1,0 +1,88 @@
+@startuml
+' Diagrama de clases del código implementado. Entidades ficticias.
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam defaultFontName Arial
+hide empty members
+
+abstract class Actuacion {
+  - __codigo: str
+  - __fecha: datetime
+  + codigo: str
+  + fecha: datetime
+  + fecha_legible(): str
+  {abstract} + describir(): str
+  {abstract} + ejecutar(): str
+}
+class RevisionDocumental {
+  - __documentos: tuple[str]
+  + documentos: tuple[str]
+  + describir(): str
+  + ejecutar(): str
+}
+class Citacion {
+  - __destinatario: Parte
+  - __medio: str
+  + describir(): str
+  + ejecutar(): str
+}
+class Audiencia {
+  - __sala: str
+  + describir(): str
+  + ejecutar(): str
+}
+class Parte {
+  - __identificacion: str
+  - __nombre: str
+  - __correo: str
+  + actualizar_correo(correo): None
+  + descripcion(): str
+}
+class Conciliador {
+  - __identificacion: str
+  - __nombre: str
+  - __especialidad: str
+  + descripcion(): str
+}
+class CasoConciliacion {
+  - __radicado: str
+  - __asunto: str
+  - __estado: str
+  - __actuaciones: list
+  + actualizar_asunto(asunto): None
+  + registrar_actuacion(actuacion): None
+  + cerrar(observacion): None
+  + resumen(): str
+}
+class ExpedienteDigital {
+  - __radicado: str
+  - __documentos: list[str]
+  + anexar_documento(nombre): None
+  + contar_documentos(): int
+}
+class CentroConciliacion {
+  - __nombre: str
+  - __casos: dict
+  - __agenda: dict
+  + registrar_caso(caso): None
+  + consultar_caso(radicado): CasoConciliacion
+  + programar_audiencia(radicado, audiencia): None
+  + resumen(): str
+}
+class CasoDuplicadoError <<exception>>
+class HorarioNoDisponibleError <<exception>>
+class EstadoCasoInvalidoError <<exception>>
+
+Actuacion <|-- RevisionDocumental
+Actuacion <|-- Citacion
+Actuacion <|-- Audiencia
+CasoConciliacion "1" *-- "1" ExpedienteDigital : composición
+CasoConciliacion "1" --> "1" Conciliador : asignado
+CasoConciliacion "1" --> "2" Parte : solicitante / convocado
+CasoConciliacion "1" o-- "0..*" Actuacion : actuaciones
+CentroConciliacion "1" o-- "0..*" CasoConciliacion : registra
+Citacion "1" --> "1" Parte : destinatario
+CentroConciliacion ..> CasoDuplicadoError : lanza
+CentroConciliacion ..> HorarioNoDisponibleError : lanza
+CasoConciliacion ..> EstadoCasoInvalidoError : lanza
+@enduml

@@ -1,0 +1,30 @@
+digraph UML {
+ graph [rankdir=LR, overlap=false, splines=spline, nodesep=0.42, ranksep=1.0,
+        pad=0.25, bgcolor="white", label="Diagrama UML de clases — Centro de Conciliación",
+        labelloc=t, fontsize=22, fontname="Arial", fontcolor="#243247"];
+ node [shape=plaintext, fontname="Arial"];
+ edge [fontname="Arial", fontsize=10, color="#526478", arrowsize=0.75];
+ Actuacion [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478">
+   <TR><TD BGCOLOR="#dae5ee"><B><I>«abstracta» Actuacion</I></B></TD></TR>
+   <TR><TD ALIGN="LEFT">- codigo: str<BR ALIGN="LEFT"/>- fecha: datetime</TD></TR>
+   <TR><TD ALIGN="LEFT">+ fecha_legible(): str<BR ALIGN="LEFT"/><I>+ describir(): str</I><BR ALIGN="LEFT"/><I>+ ejecutar(): str</I></TD></TR></TABLE>>];
+ RevisionDocumental [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#e7f1ee"><B>RevisionDocumental</B></TD></TR><TR><TD ALIGN="LEFT">- documentos: tuple</TD></TR><TR><TD ALIGN="LEFT">+ describir(): str<BR ALIGN="LEFT"/>+ ejecutar(): str</TD></TR></TABLE>>];
+ Citacion [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#e7f1ee"><B>Citacion</B></TD></TR><TR><TD ALIGN="LEFT">- destinatario: Parte<BR ALIGN="LEFT"/>- medio: str</TD></TR><TR><TD ALIGN="LEFT">+ describir(): str<BR ALIGN="LEFT"/>+ ejecutar(): str</TD></TR></TABLE>>];
+ Audiencia [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#e7f1ee"><B>Audiencia</B></TD></TR><TR><TD ALIGN="LEFT">- sala: str</TD></TR><TR><TD ALIGN="LEFT">+ describir(): str<BR ALIGN="LEFT"/>+ ejecutar(): str</TD></TR></TABLE>>];
+ Caso [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#dae5ee"><B>CasoConciliacion</B></TD></TR><TR><TD ALIGN="LEFT">- radicado, asunto, estado<BR ALIGN="LEFT"/>- actuaciones: list</TD></TR><TR><TD ALIGN="LEFT">+ registrar_actuacion()<BR ALIGN="LEFT"/>+ cerrar()<BR ALIGN="LEFT"/>+ resumen()</TD></TR></TABLE>>];
+ Expediente [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#e7f1ee"><B>ExpedienteDigital</B></TD></TR><TR><TD ALIGN="LEFT">- radicado<BR ALIGN="LEFT"/>- documentos: list</TD></TR><TR><TD ALIGN="LEFT">+ anexar_documento()<BR ALIGN="LEFT"/>+ contar_documentos()</TD></TR></TABLE>>];
+ Parte [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#e7f1ee"><B>Parte</B></TD></TR><TR><TD ALIGN="LEFT">- identificacion, nombre, correo</TD></TR><TR><TD ALIGN="LEFT">+ actualizar_correo()<BR ALIGN="LEFT"/>+ descripcion()</TD></TR></TABLE>>];
+ Conciliador [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#e7f1ee"><B>Conciliador</B></TD></TR><TR><TD ALIGN="LEFT">- identificacion, nombre, especialidad</TD></TR><TR><TD ALIGN="LEFT">+ descripcion()</TD></TR></TABLE>>];
+ Centro [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#dae5ee"><B>CentroConciliacion</B></TD></TR><TR><TD ALIGN="LEFT">- casos: dict<BR ALIGN="LEFT"/>- agenda: dict</TD></TR><TR><TD ALIGN="LEFT">+ registrar_caso()<BR ALIGN="LEFT"/>+ programar_audiencia()<BR ALIGN="LEFT"/>+ resumen()</TD></TR></TABLE>>];
+ Excepciones [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#526478"><TR><TD BGCOLOR="#f4e9e7"><B>«exception» Excepciones</B></TD></TR><TR><TD ALIGN="LEFT">CasoDuplicadoError<BR ALIGN="LEFT"/>HorarioNoDisponibleError<BR ALIGN="LEFT"/>EstadoCasoInvalidoError</TD></TR></TABLE>>];
+ Centro -> Caso [label="registra 0..*", dir=back, arrowtail=odiamond, arrowhead=none];
+ Caso -> Expediente [label="1 composición", dir=back, arrowtail=diamond, arrowhead=none];
+ Caso -> Parte [label="2 partes", arrowhead=open];
+ Caso -> Conciliador [label="1 asignado", arrowhead=open];
+ Caso -> Actuacion [label="0..* actuaciones", dir=back, arrowtail=odiamond, arrowhead=none];
+ Citacion -> Parte [label="destinatario", arrowhead=open];
+ RevisionDocumental -> Actuacion [arrowhead=empty];
+ Citacion -> Actuacion [arrowhead=empty];
+ Audiencia -> Actuacion [arrowhead=empty];
+ Centro -> Excepciones [style=dashed, label="lanza", constraint=false];
+}
